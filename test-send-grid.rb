@@ -3,10 +3,10 @@
 require 'sendgrid-ruby'
 include SendGrid
 
-from = Email.new(email: 'testsendgrid3@mailinator.com')
-to = Email.new(email: 'testsendgrid2@mailinator.com')
-subject = 'Is sending with SendGrid still fun?'
-content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby, still trying')
+from = Email.new(email: 'wahahovet@net-list.com')
+to = Email.new(email: 'wahahovet@net-list.com')
+subject = 'Sending with SendGrid is still fun!'
+content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby, it works')
 mail = Mail.new(from, subject, to, content)
 
 sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
