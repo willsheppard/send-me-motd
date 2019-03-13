@@ -19,6 +19,7 @@ ENV["SENDGRID_API_KEY"] = sendgrid_key
 to_address ||= 'wahahovet@net-list.com'; # default to a test address
 
 # Select a random message
+srand
 lines = File.readlines(file)
 heading = lines.shift
 chosen_line = lines.sample
