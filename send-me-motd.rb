@@ -13,10 +13,12 @@ require 'date'
 file = ARGV[0]
 sendgrid_key = ARGV[1]
 to_address = ARGV[2]
-abort "usage: #{$0} [filename] [key] [email]" unless file && sendgrid_key
+from_address = ARGV[3]
+abort "usage: #{$0} [filename] [key] [email to] [email from]" unless file && sendgrid_key
 
 ENV["SENDGRID_API_KEY"] = sendgrid_key
 to_address ||= 'wahahovet@net-list.com'; # default to a test address
+from_address ||= to_address;
 
 # Select a random message
 srand
@@ -26,7 +28,7 @@ chosen_line = lines.sample
 chosen_line.chomp!
 
 # Email the message
-from = Email.new(email: to_address)
+from = Email.new(email: from_address)
 to = Email.new(email: to_address)
 subject = heading;
 content = Content.new(type: 'text/plain', value: chosen_line)
